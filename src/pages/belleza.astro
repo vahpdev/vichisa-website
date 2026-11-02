@@ -1,0 +1,20 @@
+---
+import Pager from "../components/Pager.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout page="belleza" title="Peluquería y maquillaje">
+  <section class="page">
+    <header class="head">
+      <p class="eyebrow">El día de la boda</p>
+      <h2>
+        Peluquería y <em>maquillaje</em>
+      </h2>
+    </header>
+    <p class="lead">
+      <em class="todo">En preparación</em> — recomendaciones de peluquería y maquillaje se publican
+      aquí en la siguiente iteración.
+    </p>
+    <Pager current="belleza" />
+  </section>
+</BaseLayout>

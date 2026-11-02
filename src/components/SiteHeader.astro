@@ -1,0 +1,65 @@
+---
+import { ROUTES, type PageId } from "../config";
+
+interface Props {
+  current: PageId;
+}
+
+const { current } = Astro.props;
+---
+
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a class="mono" href="/" aria-label="Inicio">
+      I y V
+    </a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="lines" aria-hidden="true">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+      Menú
+    </button>
+    <nav aria-label="Principal">
+      <ul class="menu" id="menu">
+        {ROUTES.map((route) => (
+          <li>
+            <a href={route.path} aria-current={route.id === current ? "page" : undefined}>
+              {route.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const bar = document.getElementById("bar");
+  const btn = document.getElementById("menu-btn");
+
+  function closeMenu() {
+    bar?.classList.remove("open");
+    btn?.setAttribute("aria-expanded", "false");
+  }
+
+  btn?.addEventListener("click", () => {
+    const open = bar?.classList.toggle("open") ?? false;
+    btn.setAttribute("aria-expanded", String(open));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      bar?.classList.contains("open") &&
+      event.target instanceof Node &&
+      !bar.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  });
+</script>

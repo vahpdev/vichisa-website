@@ -1,0 +1,20 @@
+---
+import Pager from "../components/Pager.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout page="boda" title="La boda">
+  <section class="page">
+    <header class="head">
+      <p class="eyebrow">Viernes · 9 de julio de 2027</p>
+      <h2>
+        La <em>boda</em>
+      </h2>
+    </header>
+    <p class="lead">
+      <em class="todo">En preparación</em> — ceremonia, celebración y horarios se publican aquí en
+      la siguiente iteración.
+    </p>
+    <Pager current="boda" />
+  </section>
+</BaseLayout>

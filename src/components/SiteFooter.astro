@@ -1,0 +1,27 @@
+---
+import { CONTACT_EMAIL, HASHTAG, PHONE_ISABEL, PHONE_VICENTE } from "../config";
+---
+
+<footer class="wrap">
+  <span class="motif" aria-hidden="true"></span>
+  <p class="hashtag">
+    <b>{HASHTAG}</b>
+  </p>
+  <div class="contact">
+    <div>
+      <small>Correo de la boda</small>
+      <span>
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      </span>
+    </div>
+    <div>
+      <small>Isabel</small>
+      <span class="num">{PHONE_ISABEL}</span>
+    </div>
+    <div>
+      <small>Vicente</small>
+      <span class="num">{PHONE_VICENTE}</span>
+    </div>
+  </div>
+  <p>ISABEL Y VICENTE · 09 · 07 · 2027 · VIGO</p>
+</footer>
