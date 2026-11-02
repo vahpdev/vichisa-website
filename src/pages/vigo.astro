@@ -5,16 +5,188 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout page="vigo" title="Descubre Vigo">
   <section class="page">
-    <header class="head">
-      <p class="eyebrow">Antes y después de la boda</p>
-      <h2>
-        Descubre <em>Vigo</em>
-      </h2>
-    </header>
-    <p class="lead">
-      <em class="todo">En preparación</em> — planes, playas y dónde comer se publican aquí en la
-      siguiente iteración.
-    </p>
+    <div class="part">
+      <header class="head">
+        <p class="eyebrow">Planes</p>
+        <h2>
+          Qué <em>hacer</em> en Vigo
+        </h2>
+      </header>
+
+      <div class="grid2">
+        <div class="block">
+          <p class="sub">En Vigo</p>
+          <div class="list">
+            <div class="item">
+              <div class="item-head">
+                <h3>Islas Cíes</h3>
+                <span class="tag">Imprescindible</span>
+              </div>
+              <p class="muted">
+                Barco desde el puerto de Vigo. En verano hace falta una autorización gratuita de la
+                Xunta (
+                <a
+                  href="https://autorizacionillasatlanticas.xunta.gal"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  autorizacionillasatlanticas.xunta.gal
+                </a>
+                ), que se pide hasta 90 días antes; después tienes 2 horas para comprar el billete.
+                O reserva un barco con la autorización incluida.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Museo do Mar y playas de Alcabre</h3>
+                <span class="tag">Al lado del pazo</span>
+              </div>
+              <p class="muted">
+                A unos pasos de la iglesia. La senda del litoral une las playas de Santa Baia, O
+                Cocho, Carril y Samil.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Casco Vello y O Castro</h3>
+                <span class="tag">Centro</span>
+              </div>
+              <p class="muted">
+                Paseo por el casco viejo, ostras en la Rúa da Pescadería y la mejor vista de la ría
+                desde el monte de O Castro.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <p class="sub">Escapadas</p>
+          <div class="list">
+            <div class="item">
+              <div class="item-head">
+                <h3>Baiona</h3>
+                <span class="tag">≈ 30 min</span>
+              </div>
+              <p class="muted">
+                Villa marinera con el Parador dentro de una fortaleza y playas preciosas.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Rías Baixas y albariño</h3>
+                <span class="tag">≈ 50 min</span>
+              </div>
+              <p class="muted">Cambados y O Grove para bodegas, marisco y la isla de A Toxa.</p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>A Coruña</h3>
+                <span class="tag">≈ 1 h 20 en tren</span>
+              </div>
+              <p class="muted">
+                La Torre de Hércules, el paseo marítimo y las galerías de la Marina. Se puede ir y
+                volver en el día en tren.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Oporto</h3>
+                <span class="tag">≈ 1 h 30</span>
+              </div>
+              <p class="muted">Si alargas el viaje, merece la pena una escapada de un día.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="part">
+      <header class="head">
+        <p class="eyebrow">Comer</p>
+        <h2 class="small">
+          Dónde <em>comer</em>
+        </h2>
+      </header>
+
+      <div class="grid2">
+        <div class="block">
+          <p class="sub">Nuestros favoritos y sin complicaciones</p>
+          <div class="list">
+            <div class="item">
+              <div class="item-head">
+                <h3>Bar Patacas</h3>
+                <span class="tag">Económico · Navia</span>
+              </div>
+              <p class="muted">
+                Cocina casera, tapas y raciones; la especialidad son las empanadillas. Rúa do
+                Xuncal, 19.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Bar El Castro</h3>
+                <span class="tag">Económico · Centro</span>
+              </div>
+              <p class="muted">
+                Tapas tradicionales con un toque creativo y terraza con vistas a la ría. Paseo de
+                Alfonso XII, 2.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Palacio de la Oliva</h3>
+                <span class="tag">€30–50 · Casco Vello</span>
+              </div>
+              <p class="muted">
+                Cocina tradicional en un palacio del casco viejo. Rúa Oliva, 2 ·{" "}
+                <span class="num">886 25 10 85</span>
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Ostras de A Pedra</h3>
+                <span class="tag">Informal</span>
+              </div>
+              <p class="muted">
+                Ostras recién abiertas en los puestos de la Rúa da Pescadería, con un albariño en
+                las terrazas de alrededor.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <p class="sub">Para una ocasión especial</p>
+          <div class="list">
+            <div class="item">
+              <div class="item-head">
+                <h3>Maruja Limón</h3>
+                <span class="tag">Estrella Michelin</span>
+              </div>
+              <p class="muted">
+                Cocina gallega reinterpretada, cerca del Náutico. Rúa Montero Ríos, 4.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Silabario</h3>
+                <span class="tag">Estrella Michelin</span>
+              </div>
+              <p class="muted">Recetario gallego con sello de autor. Rúa do Príncipe, 44.</p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Morrofino · Casa Marco</h3>
+                <span class="tag">Bib Gourmand</span>
+              </div>
+              <p class="muted">
+                Muy buena cocina a precio razonable: informal y creativa en Morrofino, clásica en
+                Casa Marco.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <Pager current="vigo" />
   </section>
 </BaseLayout>

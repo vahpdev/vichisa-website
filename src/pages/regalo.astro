@@ -1,18 +1,62 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const IBAN = "ES00 0000 0000 0000 0000 0000";
 ---
 
 <BaseLayout page="regalo" title="Regalo">
   <section class="page">
-    <header class="head">
-      <p class="eyebrow">Vuestra compañía es el mejor regalo</p>
-      <h2>Regalo</h2>
-    </header>
-    <p class="lead">
-      <em class="todo">En preparación</em> — los detalles del regalo se publican aquí en la
-      siguiente iteración.
-    </p>
+    <div class="gift">
+      <span class="motif" aria-hidden="true"></span>
+      <h2>
+        Su <em>regalo</em>
+      </h2>
+      <p class="msg">
+        No les pedimos nada: que estén con nosotros ese día es el mejor regalo que podemos tener.
+      </p>
+      <p class="msg muted">
+        Si aun así quieren ayudarnos a empezar nuestra vida juntos y a disfrutar de nuestra luna de
+        miel, aquí les dejamos nuestro número de cuenta.
+      </p>
+      <div class="iban">
+        <span class="eyebrow">IBAN</span>
+        <code id="iban">{IBAN}</code>
+        <span class="who">Titulares: Isabel y Vicente</span>
+        <div class="row" style="justify-content: center">
+          <button class="cta ghost" type="button" id="copy-iban">
+            Copiar número de cuenta
+          </button>
+        </div>
+        <p class="muted" id="iban-msg" hidden></p>
+      </div>
+      <p class="muted">Gracias de corazón.</p>
+    </div>
+
     <Pager current="regalo" />
   </section>
 </BaseLayout>
+
+<script>
+  const iban = document.getElementById("iban");
+  const btn = document.getElementById("copy-iban");
+  const msg = document.getElementById("iban-msg");
+
+  async function copyIban() {
+    const text = iban?.textContent ?? "";
+    try {
+      await navigator.clipboard.writeText(text);
+      if (msg) {
+        msg.hidden = false;
+        msg.textContent = "Número de cuenta copiado.";
+      }
+    } catch {
+      if (msg) {
+        msg.hidden = false;
+        msg.textContent = text;
+      }
+    }
+  }
+
+  btn?.addEventListener("click", copyIban);
+</script>

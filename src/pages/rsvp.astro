@@ -1,20 +1,396 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { CONTACT_EMAIL, PHONE_ISABEL, PHONE_VICENTE, RSVP_DEADLINE, WHATSAPP } from "../config";
+
+const deadline = new Date(RSVP_DEADLINE).getTime();
+const isOpen = deadline > Date.now();
 ---
 
 <BaseLayout page="rsvp" title="Confirmar asistencia">
   <section class="page">
     <header class="head">
-      <p class="eyebrow">Antes del 15 de mayo de 2027</p>
+      <p class="eyebrow">Confirmación</p>
       <h2>
-        Confirmar <em>asistencia</em>
+        ¿<em>Vienes</em>?
       </h2>
     </header>
-    <p class="lead">
-      <em class="todo">En preparación</em> — el formulario de confirmación se publica aquí en una
-      iteración posterior.
-    </p>
+
+    {isOpen ? (
+      <>
+        <p class="lead">
+          Rellena una respuesta por invitación antes del <strong>15 de mayo de 2027</strong>. Al
+          terminar podrás enviárnosla por WhatsApp.
+        </p>
+        <p class="lead">¿Dudas? Escríbenos o llámanos:</p>
+
+        <div class="contact">
+          <div>
+            <small>Correo de la boda</small>
+            <span>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            </span>
+          </div>
+          <div>
+            <small>Isabel</small>
+            <span class="num">{PHONE_ISABEL}</span>
+          </div>
+          <div>
+            <small>Vicente</small>
+            <span class="num">{PHONE_VICENTE}</span>
+          </div>
+        </div>
+
+        <form id="rsvp-form" novalidate>
+          <label class="field" for="nombre">
+            Nombre y apellidos
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              autocomplete="name"
+              placeholder="Ej. Lucía Fernández"
+            />
+          </label>
+
+          <fieldset>
+            <legend>¿Podrás venir?</legend>
+            <div class="choices">
+              <label class="choice">
+                <input type="radio" name="asiste" id="asiste-si" value="si" />
+                <span>Sí, allí estaré</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="asiste" id="asiste-no" value="no" />
+                <span>No podré ir</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div id="si-block" hidden>
+            <div style="display: grid; gap: 26px;">
+              <label class="field" for="acomp">
+                Acompañantes
+                <small>Nombres de quienes vienen contigo en esta invitación, si los hay</small>
+                <input type="text" id="acomp" name="acomp" placeholder="Ej. Marcos Ruiz" />
+              </label>
+
+              <fieldset class="diet">
+                <legend>
+                  ¿Tienes alguna alergia o intolerancia alimentaria?
+                  <small>Incluye a tus acompañantes. Se lo pasaremos a la cocina del pazo.</small>
+                </legend>
+                <div class="choices">
+                  <label class="choice">
+                    <input type="radio" name="alg" id="alg-no" value="no" />
+                    <span>No</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="alg" id="alg-si" value="si" />
+                    <span>Sí</span>
+                  </label>
+                </div>
+
+                <div id="alg-block" hidden>
+                  <div style="display: grid; gap: 8px;">
+                    <p class="group-title">Alergias</p>
+                    <div class="choices" data-group="alergias">
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Marisco" />
+                        <span>Marisco</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Pescado" />
+                        <span>Pescado</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Frutos secos" />
+                        <span>Frutos secos</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Cacahuete" />
+                        <span>Cacahuete</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Huevo" />
+                        <span>Huevo</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Proteína de la leche" />
+                        <span>Proteína de la leche</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="alergias" value="Otra (ver detalles)" />
+                        <span>Otra</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div style="display: grid; gap: 8px;">
+                    <p class="group-title">Intolerancias</p>
+                    <div class="choices" data-group="intolerancias">
+                      <label class="choice">
+                        <input type="checkbox" name="intolerancias" value="Gluten / celiaquía" />
+                        <span>Gluten / celiaquía</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="intolerancias" value="Lactosa" />
+                        <span>Lactosa</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="intolerancias" value="Fructosa" />
+                        <span>Fructosa</span>
+                      </label>
+                      <label class="choice">
+                        <input type="checkbox" name="intolerancias" value="Otra (ver detalles)" />
+                        <span>Otra</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <label class="field" for="al-detalles">
+                    Detalles
+                    <small>
+                      De quién es cada una y si es grave (por ejemplo, contaminación cruzada)
+                    </small>
+                    <input
+                      type="text"
+                      id="al-detalles"
+                      name="al-detalles"
+                      placeholder="Ej. Marcos: alergia grave al marisco"
+                    />
+                  </label>
+                </div>
+
+                <div style="display: grid; gap: 8px;">
+                  <p class="group-title">¿Alguna dieta especial?</p>
+                  <div class="choices" data-group="dieta">
+                    <label class="choice">
+                      <input type="checkbox" name="dieta" value="Sin restricciones" data-none />
+                      <span>Sin restricciones</span>
+                    </label>
+                    <label class="choice">
+                      <input type="checkbox" name="dieta" value="Vegetariana" />
+                      <span>Vegetariana</span>
+                    </label>
+                    <label class="choice">
+                      <input type="checkbox" name="dieta" value="Vegana" />
+                      <span>Vegana</span>
+                    </label>
+                    <label class="choice">
+                      <input type="checkbox" name="dieta" value="Embarazo" />
+                      <span>Embarazo</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>¿Qué te apetece beber?</legend>
+                <div class="choices" data-group="bebidas">
+                  <label class="choice">
+                    <input type="checkbox" name="bebidas" value="Vino" />
+                    <span>Vino</span>
+                  </label>
+                  <label class="choice">
+                    <input type="checkbox" name="bebidas" value="Cerveza" />
+                    <span>Cerveza</span>
+                  </label>
+                  <label class="choice">
+                    <input type="checkbox" name="bebidas" value="Cava / champán" />
+                    <span>Cava / champán</span>
+                  </label>
+                  <label class="choice">
+                    <input type="checkbox" name="bebidas" value="Copas y cócteles" />
+                    <span>Copas y cócteles</span>
+                  </label>
+                  <label class="choice">
+                    <input type="checkbox" name="bebidas" value="Sin alcohol" />
+                    <span>Sin alcohol</span>
+                  </label>
+                </div>
+                <label class="field" for="b-otras">
+                  <small>¿Alguna marca o copa favorita para la barra libre?</small>
+                  <input
+                    type="text"
+                    id="b-otras"
+                    name="b-otras"
+                    placeholder="Ej. gin-tonic con Nordés"
+                  />
+                </label>
+              </fieldset>
+
+              <label class="field" for="cancion">
+                Una canción que no puede faltar
+                <input type="text" id="cancion" name="cancion" placeholder="Artista – canción" />
+              </label>
+            </div>
+          </div>
+
+          <label class="field" for="mensaje">
+            Mensaje para los novios
+            <small>Opcional</small>
+            <textarea id="mensaje" name="mensaje"></textarea>
+          </label>
+
+          <p class="err" id="err" hidden></p>
+          <button class="cta" type="submit">
+            Preparar mi respuesta
+          </button>
+
+          <div class="result" id="result" hidden>
+            <p>
+              <strong>Tu respuesta está lista.</strong> Envíanosla para que quede confirmada.
+            </p>
+            <pre id="resumen"></pre>
+            <div class="row">
+              <a class="cta" id="wa" href="#" target="_blank" rel="noopener">
+                Enviar por WhatsApp
+              </a>
+              <button class="cta ghost" type="button" id="copiar">
+                Copiar texto
+              </button>
+            </div>
+            <p class="muted" id="copy-msg" hidden></p>
+          </div>
+        </form>
+      </>
+    ) : (
+      <div class="note">
+        <strong>El plazo para confirmar asistencia ha terminado.</strong>
+        <br />
+        Si necesitas hacer un cambio de última hora, escríbenos a{" "}
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </div>
+    )}
+
     <Pager current="rsvp" />
   </section>
 </BaseLayout>
+
+<script define:vars={{ WHATSAPP }}>
+  const form = document.getElementById("rsvp-form");
+  const siBlock = document.getElementById("si-block");
+  const algBlock = document.getElementById("alg-block");
+  const err = document.getElementById("err");
+  const result = document.getElementById("result");
+  const resumen = document.getElementById("resumen");
+  const wa = document.getElementById("wa");
+  const copiar = document.getElementById("copiar");
+  const copyMsg = document.getElementById("copy-msg");
+
+  function toggleSiBlock() {
+    const asiste = document.querySelector('input[name="asiste"]:checked');
+    if (siBlock) siBlock.hidden = !asiste || asiste.value !== "si";
+  }
+
+  function toggleAlgBlock() {
+    const alg = document.querySelector('input[name="alg"]:checked');
+    if (algBlock) algBlock.hidden = !alg || alg.value !== "si";
+  }
+
+  function checkedValues(name) {
+    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+      .map((input) => input.value)
+      .join(", ");
+  }
+
+  function value(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : "";
+  }
+
+  form?.addEventListener("change", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+
+    if (target.name === "asiste") toggleSiBlock();
+    if (target.name === "alg") toggleAlgBlock();
+
+    if (target.name === "dieta") {
+      const group = document.querySelectorAll('input[name="dieta"]');
+      if (target.dataset.none != null && target.checked) {
+        group.forEach((input) => {
+          if (input !== target) input.checked = false;
+        });
+      } else if (target.checked) {
+        group.forEach((input) => {
+          if (input.dataset.none != null) input.checked = false;
+        });
+      }
+    }
+  });
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (err) err.hidden = true;
+
+    const nombre = value("nombre");
+    const asiste = document.querySelector('input[name="asiste"]:checked');
+
+    if (!nombre || !asiste) {
+      if (err) {
+        err.hidden = false;
+        err.textContent = "Por favor, indica tu nombre y si podrás venir.";
+      }
+      return;
+    }
+
+    const lines = [];
+    lines.push(`Nombre: ${nombre}`);
+    lines.push(`Asistencia: ${asiste.value === "si" ? "Sí, allí estaré" : "No podré ir"}`);
+
+    if (asiste.value === "si") {
+      const acomp = value("acomp");
+      if (acomp) lines.push(`Acompañantes: ${acomp}`);
+
+      const alg = document.querySelector('input[name="alg"]:checked');
+      if (alg && alg.value === "si") {
+        const alergias = checkedValues("alergias");
+        const intolerancias = checkedValues("intolerancias");
+        const detalles = value("al-detalles");
+        if (alergias) lines.push(`Alergias: ${alergias}`);
+        if (intolerancias) lines.push(`Intolerancias: ${intolerancias}`);
+        if (detalles) lines.push(`Detalles alergias/intolerancias: ${detalles}`);
+      }
+
+      const dieta = checkedValues("dieta");
+      if (dieta) lines.push(`Dieta: ${dieta}`);
+
+      const bebidas = checkedValues("bebidas");
+      const bOtras = value("b-otras");
+      if (bebidas) lines.push(`Bebidas: ${bebidas}`);
+      if (bOtras) lines.push(`Otras bebidas: ${bOtras}`);
+
+      const cancion = value("cancion");
+      if (cancion) lines.push(`Canción: ${cancion}`);
+    }
+
+    const mensaje = value("mensaje");
+    if (mensaje) lines.push(`Mensaje: ${mensaje}`);
+
+    const text = lines.join("\n");
+
+    if (resumen) resumen.textContent = text;
+    if (wa) wa.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    if (result) result.hidden = false;
+    if (copyMsg) copyMsg.hidden = true;
+    result?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  copiar?.addEventListener("click", async () => {
+    const text = resumen?.textContent ?? "";
+    try {
+      await navigator.clipboard.writeText(text);
+      if (copyMsg) {
+        copyMsg.hidden = false;
+        copyMsg.textContent = "Texto copiado. Pégalo en un mensaje para enviárnoslo.";
+      }
+    } catch {
+      if (copyMsg) {
+        copyMsg.hidden = false;
+        copyMsg.textContent = text;
+      }
+    }
+  });
+</script>
