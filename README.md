@@ -9,17 +9,17 @@ panel. The site is in Spanish.
 
 ## Pages
 
-| Route      | Content                                        |
-| ---------- | ---------------------------------------------- |
-| `/`        | Home — save-the-date, countdown, hashtag       |
-| `/boda`    | Ceremony, celebration, timeline and maps       |
-| `/rsvp`    | Attendance confirmation                        |
-| `/viaje`   | Airports, trains, hotels and the special rate  |
-| `/belleza` | Hair and makeup                                |
-| `/vigo`    | Plans, beaches and restaurants                 |
-| `/regalo`  | Gift details                                   |
-| `/login`   | Email + 6-digit code                           |
-| `/admin`   | Private panel for the couple                   |
+| Route      | Content                                       |
+| ---------- | --------------------------------------------- |
+| `/`        | Home — save-the-date, countdown, hashtag      |
+| `/boda`    | Ceremony, celebration, timeline and maps      |
+| `/rsvp`    | Attendance confirmation                       |
+| `/viaje`   | Airports, trains, hotels and the special rate |
+| `/belleza` | Hair and makeup                               |
+| `/vigo`    | Plans, beaches and restaurants                |
+| `/regalo`  | Gift details                                  |
+| `/login`   | Email + 6-digit code                          |
+| `/admin`   | Private panel for the couple                  |
 
 ## Stack
 

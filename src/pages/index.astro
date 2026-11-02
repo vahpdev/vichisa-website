@@ -1,0 +1,42 @@
+---
+import Countdown from "../components/Countdown.astro";
+import Pager from "../components/Pager.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { HASHTAG } from "../config";
+---
+
+<BaseLayout page="inicio" title="Inicio">
+  <section class="page">
+    <div class="hero">
+      <span class="motif" role="img" aria-label="Alga, motivo de la boda"></span>
+      <h1 class="names">Isabel y Vicente</h1>
+      <p class="slogan">Del Caribe al Atlántico</p>
+      <div class="hero-meta">
+        <span>09 de julio de 2027</span>
+        <span>Vigo, Pontevedra</span>
+      </div>
+      <Countdown />
+      <a class="cta" href="/rsvp">
+        Confirmar asistencia
+      </a>
+      <p class="hashtag">
+        Compartan sus fotos con <b>{HASHTAG}</b>
+      </p>
+    </div>
+    <div class="quick">
+      <a href="/boda">
+        <span>La boda</span>
+        <small>Ceremonia a las 17:00 en Alcabre</small>
+      </a>
+      <a href="/viaje">
+        <span>Viaje y alojamiento</span>
+        <small>Vuelos, hoteles y tarifa especial</small>
+      </a>
+      <a href="/vigo">
+        <span>Descubre Vigo</span>
+        <small>Planes, playas y dónde comer</small>
+      </a>
+    </div>
+    <Pager current="inicio" />
+  </section>
+</BaseLayout>

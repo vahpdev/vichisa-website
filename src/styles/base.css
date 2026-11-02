@@ -1,0 +1,116 @@
+/*
+ * Element-level base: reset, typography, links and focus.
+ * Component classes live in global.css.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  padding-inline: 16px;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  text-wrap: balance;
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+h2 em,
+.it {
+  font-family: var(--f-italic);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+h3 {
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0;
+}
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: var(--olive-text);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--olive-text);
+  outline-offset: 2px;
+}
+
+/* Skip link: hidden until focused (keyboard users). */
+.skip {
+  position: absolute;
+  left: 8px;
+  top: -64px;
+  z-index: 20;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--olive-text);
+  color: var(--olive-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip:focus-visible {
+  top: calc(8px + env(safe-area-inset-top, 0px));
+}
+
+/* Page fade only when the user has not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .page:not([hidden]) {
+    animation: fade 0.35s ease;
+  }
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

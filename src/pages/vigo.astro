@@ -1,0 +1,20 @@
+---
+import Pager from "../components/Pager.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout page="vigo" title="Descubre Vigo">
+  <section class="page">
+    <header class="head">
+      <p class="eyebrow">Antes y después de la boda</p>
+      <h2>
+        Descubre <em>Vigo</em>
+      </h2>
+    </header>
+    <p class="lead">
+      <em class="todo">En preparación</em> — planes, playas y dónde comer se publican aquí en la
+      siguiente iteración.
+    </p>
+    <Pager current="vigo" />
+  </section>
+</BaseLayout>

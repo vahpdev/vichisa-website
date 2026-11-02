@@ -1,0 +1,27 @@
+---
+import { ROUTES, type PageId } from "../config";
+
+interface Props {
+  current: PageId;
+}
+
+const { current } = Astro.props;
+const index = ROUTES.findIndex((route) => route.id === current);
+const prev = index > 0 ? ROUTES[index - 1] : undefined;
+const next = index >= 0 && index < ROUTES.length - 1 ? ROUTES[index + 1] : undefined;
+---
+
+<nav class="pager" aria-label="Página anterior y siguiente">
+  {prev && (
+    <a class="prev" href={prev.path}>
+      <small>← Anterior</small>
+      {prev.title}
+    </a>
+  )}
+  {next && (
+    <a class="next" href={next.path}>
+      <small>Siguiente →</small>
+      {next.title}
+    </a>
+  )}
+</nav>

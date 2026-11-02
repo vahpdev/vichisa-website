@@ -1,0 +1,10 @@
+# Immutable artifacts and generated output
+reference/
+assets/
+dist/
+.astro/
+.wrangler/
+package-lock.json
+
+# Binary-adjacent
+public/fonts/licenses/

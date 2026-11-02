@@ -1,0 +1,20 @@
+---
+import Pager from "../components/Pager.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout page="viaje" title="Viaje y alojamiento">
+  <section class="page">
+    <header class="head">
+      <p class="eyebrow">Cómo llegar y dónde dormir</p>
+      <h2>
+        Viaje y <em>alojamiento</em>
+      </h2>
+    </header>
+    <p class="lead">
+      <em class="todo">En preparación</em> — aeropuertos, trenes, hoteles y la tarifa especial se
+      publican aquí en la siguiente iteración.
+    </p>
+    <Pager current="viaje" />
+  </section>
+</BaseLayout>

@@ -1,0 +1,14 @@
+{
+  "name": "Isabel y Vicente",
+  "short_name": "I y V",
+  "description": "Boda de Isabel y Vicente — 9 de julio de 2027, Vigo",
+  "lang": "es",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#1B2B03",
+  "theme_color": "#1B2B03",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

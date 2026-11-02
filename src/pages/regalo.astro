@@ -1,0 +1,18 @@
+---
+import Pager from "../components/Pager.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout page="regalo" title="Regalo">
+  <section class="page">
+    <header class="head">
+      <p class="eyebrow">Vuestra compañía es el mejor regalo</p>
+      <h2>Regalo</h2>
+    </header>
+    <p class="lead">
+      <em class="todo">En preparación</em> — los detalles del regalo se publican aquí en la
+      siguiente iteración.
+    </p>
+    <Pager current="regalo" />
+  </section>
+</BaseLayout>
