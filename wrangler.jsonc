@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "vichisa",
+  "name": "vichisa-website",
   "compatibility_date": "2026-11-01",
   "compatibility_flags": ["nodejs_compat"],
   // The Astro adapter provides the worker entrypoint and the ASSETS binding.
