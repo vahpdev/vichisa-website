@@ -18,6 +18,14 @@ export const PHONE_ISABEL = "+34 654 96 17 67";
 export const PHONE_VICENTE = "+34 654 20 41 80";
 export const HASHTAG = "#LaVichisa";
 
+/** Placeholder until the couple supplies the real account number. */
+export const IBAN = "ES00 0000 0000 0000 0000 0000";
+
+/** Returns a `tel:` URI for a phone number, stripping spaces and non-digits. */
+export function telUri(phone: string): string {
+  return `tel:${phone.replace(/\D/g, "")}`;
+}
+
 /** Palette keys; each maps to a `:root[data-page="…"]` block in tokens.css. */
 export type PageId = "inicio" | "boda" | "rsvp" | "viaje" | "belleza" | "vigo" | "regalo";
 

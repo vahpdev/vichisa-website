@@ -1,8 +1,7 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const IBAN = "ES00 0000 0000 0000 0000 0000";
+import { IBAN } from "../config";
 ---
 
 <BaseLayout page="regalo" title="Regalo">
@@ -42,19 +41,32 @@ const IBAN = "ES00 0000 0000 0000 0000 0000";
   const btn = document.getElementById("copy-iban");
   const msg = document.getElementById("iban-msg");
 
+  function fallbackCopy() {
+    const selection = window.getSelection();
+    if (!selection || !iban) return;
+    const range = document.createRange();
+    range.selectNodeContents(iban);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    if (msg) {
+      msg.hidden = false;
+      msg.textContent =
+        "No se pudo copiar automáticamente. El número está seleccionado: cópialo a mano.";
+    }
+  }
+
   async function copyIban() {
     const text = iban?.textContent ?? "";
+    if (!text) return;
     try {
+      if (!navigator.clipboard) throw new Error("Clipboard API not available");
       await navigator.clipboard.writeText(text);
       if (msg) {
         msg.hidden = false;
         msg.textContent = "Número de cuenta copiado.";
       }
     } catch {
-      if (msg) {
-        msg.hidden = false;
-        msg.textContent = text;
-      }
+      fallbackCopy();
     }
   }
 

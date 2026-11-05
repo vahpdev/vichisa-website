@@ -1,6 +1,7 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { telUri } from "../config";
 ---
 
 <BaseLayout page="vigo" title="Descubre Vigo">
@@ -138,7 +139,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               </div>
               <p class="muted">
                 Cocina tradicional en un palacio del casco viejo. Rúa Oliva, 2 ·{" "}
-                <span class="num">886 25 10 85</span>
+                <a class="num" href={telUri("+34 886 25 10 85")}>
+                  886 25 10 85
+                </a>
               </p>
             </div>
             <div class="item">

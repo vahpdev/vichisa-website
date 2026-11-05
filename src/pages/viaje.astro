@@ -1,6 +1,7 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { telUri } from "../config";
 ---
 
 <BaseLayout page="viaje" title="Viaje y alojamiento">
@@ -88,8 +89,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <strong>Tarifa especial en Pazo Los Escudos.</strong> Escribe o llama al hotel y di que vas
         a la boda de Isabel y Vicente: te darán una tarifa especial con desayuno incluido.
         <br />
-        <span class="num">+34 986 820 820</span> ·
-        <a href="mailto:reservas@pazolosescudos.com">reservas@pazolosescudos.com</a>
+        <a class="num" href={telUri("+34 986 820 820")}>
+          +34 986 820 820
+        </a>{" "}
+        ·<a href="mailto:reservas@pazolosescudos.com">reservas@pazolosescudos.com</a>
       </div>
 
       <p class="lead">

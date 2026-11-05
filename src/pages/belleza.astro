@@ -1,6 +1,7 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { telUri } from "../config";
 ---
 
 <BaseLayout page="belleza" title="Peluquería y maquillaje">
@@ -38,7 +39,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <span class="tag">A domicilio</span>
         </div>
         <p class="muted">
-          Se desplazan al hotel en toda la provincia. WhatsApp <span class="num">658 927 130</span>
+          Se desplazan al hotel en toda la provincia. WhatsApp{" "}
+          <a class="num" href={telUri("+34 658 927 130")}>
+            658 927 130
+          </a>
         </p>
       </div>
       <div class="item">

@@ -1,7 +1,14 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { CONTACT_EMAIL, PHONE_ISABEL, PHONE_VICENTE, RSVP_DEADLINE, WHATSAPP } from "../config";
+import {
+  CONTACT_EMAIL,
+  PHONE_ISABEL,
+  PHONE_VICENTE,
+  RSVP_DEADLINE,
+  WHATSAPP,
+  telUri,
+} from "../config";
 
 const deadline = new Date(RSVP_DEADLINE).getTime();
 const isOpen = deadline > Date.now();
@@ -33,11 +40,19 @@ const isOpen = deadline > Date.now();
           </div>
           <div>
             <small>Isabel</small>
-            <span class="num">{PHONE_ISABEL}</span>
+            <span>
+              <a class="num" href={telUri(PHONE_ISABEL)}>
+                {PHONE_ISABEL}
+              </a>
+            </span>
           </div>
           <div>
             <small>Vicente</small>
-            <span class="num">{PHONE_VICENTE}</span>
+            <span>
+              <a class="num" href={telUri(PHONE_VICENTE)}>
+                {PHONE_VICENTE}
+              </a>
+            </span>
           </div>
         </div>
 
@@ -378,19 +393,32 @@ const isOpen = deadline > Date.now();
     result?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 
+  function fallbackCopy() {
+    const selection = window.getSelection();
+    if (!selection || !resumen) return;
+    const range = document.createRange();
+    range.selectNodeContents(resumen);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    if (copyMsg) {
+      copyMsg.hidden = false;
+      copyMsg.textContent =
+        "No se pudo copiar automáticamente. El texto está seleccionado: cópialo a mano.";
+    }
+  }
+
   copiar?.addEventListener("click", async () => {
     const text = resumen?.textContent ?? "";
+    if (!text) return;
     try {
+      if (!navigator.clipboard) throw new Error("Clipboard API not available");
       await navigator.clipboard.writeText(text);
       if (copyMsg) {
         copyMsg.hidden = false;
         copyMsg.textContent = "Texto copiado. Pégalo en un mensaje para enviárnoslo.";
       }
     } catch {
-      if (copyMsg) {
-        copyMsg.hidden = false;
-        copyMsg.textContent = text;
-      }
+      fallbackCopy();
     }
   });
 </script>
