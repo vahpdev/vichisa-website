@@ -1,20 +1,61 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { telUri } from "../config";
 ---
 
 <BaseLayout page="belleza" title="Peluquería y maquillaje">
   <section class="page">
     <header class="head">
-      <p class="eyebrow">El día de la boda</p>
+      <p class="eyebrow">Belleza</p>
       <h2>
         Peluquería y <em>maquillaje</em>
       </h2>
     </header>
+
     <p class="lead">
-      <em class="todo">En preparación</em> — recomendaciones de peluquería y maquillaje se publican
-      aquí en la siguiente iteración.
+      Si quieres arreglarte el día de la boda, estas profesionales trabajan con novias e invitadas
+      en Vigo. Reserva con tiempo: los viernes de julio se llenan.
     </p>
+
+    <div class="list">
+      <div class="item">
+        <div class="item-head">
+          <h3>Ariadna Pazos</h3>
+          <span class="tag">Maquillaje y peinado</span>
+        </div>
+        <p class="muted">Maquilladora y peluquera especializada en novias.</p>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <h3>Celeste Peluquería</h3>
+          <span class="tag">Salón · Vigo</span>
+        </div>
+        <p class="muted">Peinados y maquillaje para novias e invitadas, con prueba previa.</p>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <h3>Todo Belleza Ramallosa</h3>
+          <span class="tag">A domicilio</span>
+        </div>
+        <p class="muted">
+          Se desplazan al hotel en toda la provincia. WhatsApp{" "}
+          <a class="num" href={telUri("+34 658 927 130")}>
+            658 927 130
+          </a>
+        </p>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <h3>Laura Caride</h3>
+          <span class="tag">Salón · Centro</span>
+        </div>
+        <p class="muted">
+          Recogidos, trenzas y peinados de invitada. Rúa Padre Seixas, 32 y Rúa Colombia, 17.
+        </p>
+      </div>
+    </div>
+
     <Pager current="belleza" />
   </section>
 </BaseLayout>

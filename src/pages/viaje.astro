@@ -1,20 +1,189 @@
 ---
 import Pager from "../components/Pager.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { telUri } from "../config";
 ---
 
 <BaseLayout page="viaje" title="Viaje y alojamiento">
   <section class="page">
-    <header class="head">
-      <p class="eyebrow">Cómo llegar y dónde dormir</p>
-      <h2>
-        Viaje y <em>alojamiento</em>
-      </h2>
-    </header>
-    <p class="lead">
-      <em class="todo">En preparación</em> — aeropuertos, trenes, hoteles y la tarifa especial se
-      publican aquí en la siguiente iteración.
-    </p>
+    <div class="part">
+      <header class="head">
+        <p class="eyebrow">Viaje</p>
+        <h2>
+          Cómo <em>llegar</em> a Vigo
+        </h2>
+      </header>
+
+      <div class="list">
+        <div class="item">
+          <div class="item-head">
+            <h3>Aeropuerto de Vigo (VGO)</h3>
+            <span class="tag">≈ 20 min al pazo</span>
+          </div>
+          <p class="muted">
+            El más cercano. Vuelos directos desde Madrid, Barcelona y algunas rutas más según
+            temporada. Desde aquí, taxi hasta Alcabre.
+          </p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Aeropuerto de Santiago (SCQ)</h3>
+            <span class="tag">≈ 1 h en coche</span>
+          </div>
+          <p class="muted">
+            Más conexiones nacionales y europeas. Hay autobús y tren a Vigo, o alquiler de coche.
+          </p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Aeropuerto de A Coruña (LCG)</h3>
+            <span class="tag">≈ 1 h 45 en coche</span>
+          </div>
+          <p class="muted">
+            Otra opción con vuelos desde Madrid, Barcelona y otras ciudades. Del aeropuerto, taxi o
+            bus a la estación de A Coruña y tren directo a Vigo por el Eje Atlántico (≈ 1 h 20).
+          </p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>Aeropuerto de Oporto (OPO)</h3>
+            <span class="tag">≈ 1 h 30 en coche</span>
+          </div>
+          <p class="muted">
+            La mejor opción si vienes de fuera de España: muchas rutas internacionales y low cost.
+            Hay traslados y autobuses directos a Vigo.
+          </p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>En tren</h3>
+            <span class="tag">Vigo-Urzáiz</span>
+          </div>
+          <p class="muted">
+            Alta velocidad desde Madrid en unas 4 horas. La estación está en el centro, a 10–15
+            minutos en taxi del pazo.
+          </p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <h3>En coche</h3>
+            <span class="tag">Aparcamiento en el pazo</span>
+          </div>
+          <p class="muted">
+            Puedes dejar el coche en el propio pazo. Si bebes, vuelve en taxi (te lo piden en
+            recepción) y recógelo al día siguiente.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="part">
+      <header class="head">
+        <p class="eyebrow">Dormir</p>
+        <h2 class="small">
+          Dónde <em>alojarse</em>
+        </h2>
+      </header>
+
+      <div class="note">
+        <strong>Tarifa especial en Pazo Los Escudos.</strong> Escribe o llama al hotel y di que vas
+        a la boda de Isabel y Vicente: te darán una tarifa especial con desayuno incluido.
+        <br />
+        <a class="num" href={telUri("+34 986 820 820")}>
+          +34 986 820 820
+        </a>{" "}
+        ·<a href="mailto:reservas@pazolosescudos.com">reservas@pazolosescudos.com</a>
+      </div>
+
+      <p class="lead">
+        Julio es temporada alta en las Rías Baixas: reserva cuanto antes. Samil y Alcabre están a
+        pocos minutos del pazo; el centro, a unos 10–15 minutos en taxi.
+      </p>
+
+      <div class="grid2">
+        <div class="block">
+          <p class="sub">Para darse un capricho</p>
+          <div class="list">
+            <div class="item">
+              <div class="item-head">
+                <h3>Pazo Los Escudos</h3>
+                <span class="tag">5★ · En la celebración</span>
+              </div>
+              <p class="muted">
+                Dormir donde es la fiesta, con spa y vistas a la ría. Tarifa especial para invitados
+                con desayuno incluido (menciona la boda al reservar).
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Gran Hotel Nagari</h3>
+                <span class="tag">5★ · Centro</span>
+              </div>
+              <p class="muted">Boutique con spa en pleno centro.</p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Attica21 Vigo</h3>
+                <span class="tag">4★ · Samil</span>
+              </div>
+              <p class="muted">
+                Frente a la playa de Samil, con piscina de temporada. Muy cerca del pazo.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Eurostars Mar de Vigo</h3>
+                <span class="tag">4★ · Beiramar</span>
+              </div>
+              <p class="muted">Primera línea de mar, cerca del puerto y del casco viejo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <p class="sub">Económicos</p>
+          <div class="list">
+            <div class="item">
+              <div class="item-head">
+                <h3>Hotel Atlántico</h3>
+                <span class="tag">2★ · Centro</span>
+              </div>
+              <p class="muted">
+                Sencillo y muy bien valorado, junto a la iglesia de Santiago de Vigo.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Hotel Airiños</h3>
+                <span class="tag">3★ · Centro</span>
+              </div>
+              <p class="muted">
+                Famoso por su desayuno con zumo natural. Buena base para moverse andando.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>Hotel Lino</h3>
+                <span class="tag">Centro</span>
+              </div>
+              <p class="muted">
+                Pequeño y económico, en la Rúa Lepanto, cerca de la zona de tapas.
+              </p>
+            </div>
+            <div class="item">
+              <div class="item-head">
+                <h3>B&amp;B Hotel Vigo</h3>
+                <span class="tag">Cadena · Precio ajustado</span>
+              </div>
+              <p class="muted">
+                Habitaciones prácticas a buen precio. Para un grupo, también compensan los
+                apartamentos turísticos en Samil.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <Pager current="viaje" />
   </section>
 </BaseLayout>

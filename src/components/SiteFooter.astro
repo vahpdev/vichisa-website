@@ -1,5 +1,5 @@
 ---
-import { CONTACT_EMAIL, HASHTAG, PHONE_ISABEL, PHONE_VICENTE } from "../config";
+import { CONTACT_EMAIL, HASHTAG, PHONE_ISABEL, PHONE_VICENTE, telUri } from "../config";
 ---
 
 <footer class="wrap">
@@ -16,11 +16,19 @@ import { CONTACT_EMAIL, HASHTAG, PHONE_ISABEL, PHONE_VICENTE } from "../config";
     </div>
     <div>
       <small>Isabel</small>
-      <span class="num">{PHONE_ISABEL}</span>
+      <span>
+        <a class="num" href={telUri(PHONE_ISABEL)}>
+          {PHONE_ISABEL}
+        </a>
+      </span>
     </div>
     <div>
       <small>Vicente</small>
-      <span class="num">{PHONE_VICENTE}</span>
+      <span>
+        <a class="num" href={telUri(PHONE_VICENTE)}>
+          {PHONE_VICENTE}
+        </a>
+      </span>
     </div>
   </div>
   <p>ISABEL Y VICENTE · 09 · 07 · 2027 · VIGO</p>

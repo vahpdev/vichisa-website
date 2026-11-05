@@ -11,10 +11,126 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         La <em>boda</em>
       </h2>
     </header>
+
     <p class="lead">
-      <em class="todo">En preparación</em> — ceremonia, celebración y horarios se publican aquí en
-      la siguiente iteración.
+      La iglesia y el pazo están en la misma avenida de Alcabre, frente a la ría. De uno a otro se
+      va andando en un par de minutos.
     </p>
+
+    <div class="venues">
+      <article class="venue">
+        <svg
+          viewBox="0 0 300 236"
+          role="img"
+          aria-label="Dibujo de la Igrexa de Santa Baia de Alcabre"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 222 H286"></path>
+          <path d="M200 124 L268 138 V222 M200 222 H268"></path>
+          <path d="M226 160 V176 A8 8 0 0 1 242 176 V160" transform="translate(0,16)"></path>
+          <path d="M100 222 V120 L150 97 L200 120 V222"></path>
+          <path d="M106 222 V124 M194 222 V124"></path>
+          <path d="M100 120 V108 M97 108 L100 98 L103 108 Z M200 120 V108 M197 108 L200 98 L203 108 Z"></path>
+          <path d="M135 222 V188 A15 15 0 0 1 165 188 V222"></path>
+          <circle cx="150" cy="156" r="9"></circle>
+          <path d="M124 103 V58 H176 V103"></path>
+          <path d="M133 96 V78 A7 7 0 0 1 147 78 V96 M153 96 V78 A7 7 0 0 1 167 78 V96"></path>
+          <path d="M140 79 Q140 86 137 88 M160 79 Q160 86 157 88" stroke-width="1.2"></path>
+          <path d="M120 58 H180"></path>
+          <path d="M140 58 V40 H160 V58 M145 58 V49 A5 5 0 0 1 155 49 V58"></path>
+          <path d="M137 40 H163"></path>
+          <path d="M128 58 V50 M126 50 L128 44 L130 50 Z M172 58 V50 M170 50 L172 44 L174 50 Z"></path>
+          <path d="M150 40 V18 M144 25 H156"></path>
+          <path d="M42 222 V214 H70 V222 M46 214 V208 H66 V214"></path>
+          <path d="M56 208 V158 M48 168 H64"></path>
+        </svg>
+        <span class="time">17:00 · Ceremonia</span>
+        <h3>Igrexa de Santa Baia de Alcabre</h3>
+        <p class="muted">Avenida da Atlántida, 112 · Alcabre, Vigo</p>
+        <p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Igrexa+de+Santa+Baia+de+Alcabre+Vigo"
+            target="_blank"
+            rel="noopener"
+          >
+            Ver en el mapa
+          </a>
+        </p>
+      </article>
+
+      <article class="venue">
+        <svg
+          viewBox="0 0 300 236"
+          role="img"
+          aria-label="Dibujo de Pazo Los Escudos"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M10 222 H290"></path>
+          <path d="M50 222 V122 H250 V222"></path>
+          <path d="M40 122 L72 92 H228 L260 122 Z"></path>
+          <path d="M86 92 V76 H98 V92 M202 92 V76 H214 V92"></path>
+          <path d="M50 128 H250 M50 172 H250"></path>
+          <path d="M64 136 h14 v24 h-14 z M92 136 h14 v24 h-14 z M194 136 h14 v24 h-14 z M222 136 h14 v24 h-14 z"></path>
+          <path d="M64 184 h14 v24 h-14 z M92 184 h14 v24 h-14 z M194 184 h14 v24 h-14 z M222 184 h14 v24 h-14 z"></path>
+          <path d="M71 136 V160 M99 136 V160 M201 136 V160 M229 136 V160" stroke-width="1"></path>
+          <path d="M138 222 V194 A12 12 0 0 1 162 194 V222"></path>
+          <path d="M140 136 H160 V150 Q160 160 150 165 Q140 160 140 150 Z"></path>
+          <path d="M150 140 V160 M143 148 H157" stroke-width="1.1"></path>
+          <path d="M134 134 Q150 128 166 134" stroke-width="1.1"></path>
+          <path d="M12 222 q6 -12 12 0 q6 -12 12 0 q6 -12 12 0 M252 222 q6 -12 12 0"></path>
+          <path d="M282 222 Q276 190 274 150"></path>
+          <path d="M274 150 Q262 142 252 150 M274 150 Q264 132 256 132 M274 150 Q280 132 290 134 M274 150 Q288 144 294 156 M274 150 Q272 136 276 126"></path>
+        </svg>
+        <span class="time">Celebración</span>
+        <h3>Pazo Los Escudos</h3>
+        <p class="muted">
+          Avenida da Atlántida, 106 · Vigo. Un pazo del siglo XIX con jardines junto a la playa do
+          Carril.
+        </p>
+        <p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Pazo+Los+Escudos+Hotel+Vigo"
+            target="_blank"
+            rel="noopener"
+          >
+            Ver en el mapa
+          </a>
+        </p>
+      </article>
+    </div>
+
+    <div class="timeline">
+      <div class="stop">
+        <span class="time">17:00</span>
+        <h3>Ceremonia en la Igrexa de Santa Baia</h3>
+      </div>
+      <div class="stop">
+        <span class="time">Después de la ceremonia</span>
+        <h3>Cóctel, cena y fiesta en Pazo Los Escudos</h3>
+      </div>
+      <div class="stop">
+        <span class="time">03:30 – 04:00</span>
+        <h3>Fin de fiesta</h3>
+        <p class="muted">
+          La recepción del pazo se encarga de pedirte un taxi para volver. Si te alojas en el propio
+          pazo, solo tienes que subir a la habitación.
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>¿Vienes en coche?</strong> Puedes aparcar en el propio pazo. Si te pasas con los
+      brindis, no conduzcas: pide un taxi en recepción y recoge el coche al día siguiente con calma.
+    </div>
+
     <Pager current="boda" />
   </section>
 </BaseLayout>
