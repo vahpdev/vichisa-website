@@ -659,6 +659,14 @@ textarea {
   padding-block: 10px;
 }
 
+.gift h1 {
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
 .gift .motif {
   width: 90px;
   aspect-ratio: 235 / 240;

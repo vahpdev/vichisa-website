@@ -18,9 +18,9 @@ const isOpen = deadline > Date.now();
   <section class="page">
     <header class="head">
       <p class="eyebrow">Confirmación</p>
-      <h2>
+      <h1>
         ¿<em>Vienes</em>?
-      </h2>
+      </h1>
     </header>
 
     {isOpen ? (
@@ -259,7 +259,14 @@ const isOpen = deadline > Date.now();
             </p>
             <pre id="resumen"></pre>
             <div class="row">
-              <a class="cta" id="wa" href="#" target="_blank" rel="noopener">
+              <a
+                class="cta"
+                id="wa"
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Enviar por WhatsApp con la respuesta (se abre en una pestaña nueva)"
+              >
                 Enviar por WhatsApp
               </a>
               <button class="cta ghost" type="button" id="copiar">
