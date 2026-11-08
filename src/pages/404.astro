@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout page="inicio" title="Página no encontrada">
+  <section class="page gift" aria-labelledby="not-found-title">
+    <span class="motif" aria-hidden="true"></span>
+    <h1 id="not-found-title">Página no encontrada</h1>
+    <p class="msg muted">
+      Parece que esta dirección no existe. Si llegaste desde un enlace antiguo, vuelve al inicio.
+    </p>
+    <a class="cta" href="/">
+      Volver al inicio
+    </a>
+  </section>
+</BaseLayout>
