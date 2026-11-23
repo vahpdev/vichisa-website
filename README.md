@@ -31,3 +31,16 @@ on login. Spanish only, no analytics.
 - `reference/` — original design prototype
 - `assets/` — logos and save-the-date
 - `src/` — Astro application
+
+## Database (D1)
+
+Invitations and RSVPs live in D1 (`vichisa-db`, exposed as the `DB` binding).
+The schema and migrations are documented in [`docs/database.md`](docs/database.md).
+
+```bash
+npm run db:migrate:local   # apply migrations to the local database
+npm run db:seed:local      # load synthetic edge-case fixtures
+npm run db:reset:local     # wipe local state, migrate and seed
+```
+
+The local database is separate from production; never seed the remote one.

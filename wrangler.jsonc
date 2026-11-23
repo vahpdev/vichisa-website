@@ -4,8 +4,16 @@
   "compatibility_date": "2026-11-01",
   "compatibility_flags": ["nodejs_compat"],
   // The Astro adapter provides the worker entrypoint and the ASSETS binding.
-  // D1 bindings, secrets and crons are added in M2 (tasks 5–6).
+  // D1: local state lives in .wrangler/ (git-ignored), --remote targets production.
   "observability": {
     "enabled": true,
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "vichisa-db",
+      "database_id": "f5cb10c7-a29c-4fa9-9347-135834911c4e",
+      "migrations_dir": "migrations",
+    },
+  ],
 }
