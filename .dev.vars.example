@@ -1,6 +1,9 @@
 # Local secrets for `npm run dev` / `npm run preview`.
 # Copy to `.dev.vars` and fill in. `.dev.vars` is git-ignored.
 # Production values are set with `wrangler secret put <NAME>` (M6, task 12).
+#
+# The D1 database is not a secret: it is the `DB` binding in `wrangler.jsonc`
+# and local dev uses the local database automatically. See docs/database.md.
 
 # HMAC key for signing auth codes and session cookies (task 7).
 SESSION_SECRET=""

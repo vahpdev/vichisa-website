@@ -28,7 +28,7 @@ const SECURITY_HEADERS: Record<string, string> = {
   ].join("; "),
 };
 
-export const onRequest: MiddlewareHandler = async (context, next) => {
+export const onRequest: MiddlewareHandler = async (_context, next) => {
   const response = await next();
 
   // Do not override existing headers (e.g. Cache-Control from the adapter).

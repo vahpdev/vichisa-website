@@ -13,7 +13,14 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "a11y": "node scripts/a11y-scan.js"
+    "a11y": "node scripts/a11y-scan.js",
+    "db:create": "wrangler d1 create vichisa-db",
+    "db:migrate:local": "wrangler d1 migrations apply vichisa-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply vichisa-db --remote",
+    "db:seed:local": "wrangler d1 execute vichisa-db --local --file=fixtures/edge-cases.sql",
+    "db:reset:local": "rm -rf .wrangler/state/v3/d1 && npm run db:migrate:local && npm run db:seed:local",
+    "db:query:local": "wrangler d1 execute vichisa-db --local --command",
+    "db:list": "wrangler d1 migrations list vichisa-db --local"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.4.3",
